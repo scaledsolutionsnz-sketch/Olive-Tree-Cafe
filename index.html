@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olive Tree Cafe — Te Anau, New Zealand</title>
+<meta name="description" content="Great coffee. Fresh food. A premium local cafe in the heart of Te Anau, New Zealand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f5f0e8;
+    --dark: #0f0f0d;
+    --dark2: #1a1a16;
+    --dark3: #252520;
+    --green: #4a7c59;
+    --green-light: #6ba37a;
+    --green-pale: #c8dbc0;
+    --gold: #c9a96e;
+    --text-muted: #8a8a80;
+    --text-mid: #b5b5aa;
+    --border: rgba(255,255,255,0.08);
+    --radius: 4px;
+    --radius-lg: 12px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--cream);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 2rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(15,15,13,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--cream);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--green-light); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    color: var(--text-mid);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--cream); }
+
+  .nav-cta {
+    background: var(--green) !important;
+    color: var(--cream) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius);
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--green-light) !important; color: var(--dark) !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--cream);
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0; right: 0;
+    background: var(--dark2);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    z-index: 99;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { color: var(--text-mid); text-decoration: none; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase; }
+  .mobile-menu a:hover { color: var(--cream); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(15,15,13,0.35) 0%, rgba(15,15,13,0.55) 60%, rgba(15,15,13,0.92) 100%),
+      url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1800&q=80') center/cover no-repeat;
+    transform: scale(1.04);
+    animation: slowZoom 12s ease-out forwards;
+  }
+
+  @keyframes slowZoom {
+    from { transform: scale(1.04); }
+    to { transform: scale(1.0); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+    padding: 0 1.5rem;
+    animation: fadeUp 1s ease 0.3s both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(107,163,122,0.3);
+    padding: 0.35rem 1rem;
+    border-radius: 2px;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.25rem;
+    color: var(--cream);
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--green-pale);
+  }
+
+  .hero p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-mid);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--green);
+    color: var(--cream);
+    text-decoration: none;
+    padding: 0.85rem 2rem;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover { background: var(--green-light); color: var(--dark); transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--cream);
+    text-decoration: none;
+    padding: 0.85rem 2rem;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid rgba(245,240,232,0.3);
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+
+  .btn-outline:hover { border-color: var(--cream); background: rgba(245,240,232,0.06); transform: translateY(-1px); }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.4;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: var(--text-mid);
+    animation: scrollPulse 2s infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 0.8; transform: scaleY(0.6); transform-origin: top; }
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 6rem 2rem; }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--green-pale); }
+
+  .section-sub {
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 480px;
+    line-height: 1.8;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0 2rem;
+  }
+
+  .divider-line { flex: 1; height: 1px; background: var(--border); }
+  .divider-leaf { color: var(--green); font-size: 1rem; }
+
+  /* ─── REVIEWS ─── */
+  #reviews {
+    background: var(--dark2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #reviews::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(74,124,89,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .reviews-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .rating-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(74,124,89,0.12);
+    border: 1px solid rgba(74,124,89,0.25);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .stars-display {
+    color: var(--gold);
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .rating-text {
+    font-size: 0.82rem;
+    color: var(--green-pale);
+    letter-spacing: 0.05em;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .review-card {
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .review-card:hover {
+    border-color: rgba(74,124,89,0.3);
+    transform: translateY(-4px);
+  }
+
+  .review-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--green);
+    opacity: 0.4;
+    margin-bottom: -0.5rem;
+    display: block;
+  }
+
+  .review-text {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .review-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .review-author {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--cream);
+    letter-spacing: 0.03em;
+  }
+
+  .review-source {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .review-stars { color: var(--gold); font-size: 0.75rem; letter-spacing: 2px; }
+
+  /* ─── GALLERY ─── */
+  #gallery { background: var(--dark); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    gap: 12px;
+    margin-top: 3rem;
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    position: relative;
+    cursor: pointer;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .gallery-item:hover img { transform: scale(1.06); }
+
+  .gallery-item:nth-child(1) { grid-column: 1 / 8; grid-row: 1; height: 380px; }
+  .gallery-item:nth-child(2) { grid-column: 8 / 13; grid-row: 1; height: 380px; }
+  .gallery-item:nth-child(3) { grid-column: 1 / 5; grid-row: 2; height: 280px; }
+  .gallery-item:nth-child(4) { grid-column: 5 / 9; grid-row: 2; height: 280px; }
+  .gallery-item:nth-child(5) { grid-column: 9 / 13; grid-row: 2; height: 280px; }
+
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15,15,13,0.7) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.25rem;
+  }
+
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+  .gallery-caption {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.85;
+  }
+
+  /* ─── MENU ─── */
+  #menu { background: var(--dark2); }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .menu-card {
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .menu-card:hover {
+    border-color: rgba(74,124,89,0.35);
+    transform: translateY(-6px);
+  }
+
+  .menu-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--green), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .menu-card:hover::after { transform: scaleX(1); }
+
+  .menu-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(74,124,89,0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  .menu-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .menu-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  /* ─── ORDER ─── */
+  #order {
+    background: var(--dark);
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  #order::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 50%, rgba(74,124,89,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 50%, rgba(201,169,110,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .order-content {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .order-tag {
+    display: inline-block;
+    background: rgba(74,124,89,0.15);
+    border: 1px solid rgba(74,124,89,0.3);
+    color: var(--green-light);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  .order-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--cream);
+    margin-bottom: 1.25rem;
+  }
+
+  .order-content p {
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--dark2); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+  }
+
+  .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+
+  .info-block {}
+
+  .info-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .info-value {
+    font-size: 1rem;
+    color: var(--cream);
+    line-height: 1.6;
+  }
+
+  .hours-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.35rem 1rem;
+  }
+
+  .hours-day { font-size: 0.85rem; color: var(--text-muted); }
+  .hours-time { font-size: 0.85rem; color: var(--cream); text-align: right; }
+
+  .map-wrap {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    height: 320px;
+  }
+
+  .map-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(60%) contrast(0.9) brightness(0.85);
+    transition: filter 0.3s;
+  }
+
+  .map-wrap:hover iframe { filter: grayscale(0%) contrast(1) brightness(1); }
+
+  /* ─── CONTACT FORM ─── */
+  .contact-form-section {
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    margin-top: 4rem;
+  }
+
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-sub {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.5rem;
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group.full { grid-column: 1 / -1; }
+
+  .form-group label {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--dark2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--cream);
+    padding: 0.75rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--green);
+  }
+
+  .form-group select option { background: var(--dark2); }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .recaptcha-wrap { margin-top: 0.5rem; }
+
+  .submit-wrap { margin-top: 1.5rem; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-brand span { color: var(--green-light); }
+
+  .footer-tagline {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-end;
+  }
+
+  .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--cream); }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .footer-credit {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .footer-credit a {
+    color: var(--green-light);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-credit a:hover { color: var(--green-pale); }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .gallery-item:nth-child(1) { grid-column: 1 / 3; height: 260px; }
+    .gallery-item:nth-child(2) { grid-column: 1 / 2; height: 220px; }
+    .gallery-item:nth-child(3) { grid-column: 2 / 3; height: 220px; }
+    .gallery-item:nth-child(4) { grid-column: 1 / 2; height: 200px; }
+    .gallery-item:nth-child(5) { grid-column: 2 / 3; height: 200px; }
+
+    .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: 1; }
+
+    .footer-inner { grid-template-columns: 1fr; }
+    .footer-links { align-items: flex-start; }
+  }
+
+  @media (max-width: 600px) {
+    section { padding: 4rem 1.25rem; }
+    .reviews-header { flex-direction: column; align-items: flex-start; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item:nth-child(n) { grid-column: 1; height: 220px; }
+    .contact-form-section { padding: 1.5rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="/" class="nav-logo">Olive Tree <span>Cafe</span></a>
+  <ul class="nav-links">
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#order" class="nav-cta">Order Online</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#reviews" onclick="closeMenu()">Reviews</a>
+  <a href="#menu" onclick="closeMenu()">Menu</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#order" onclick="closeMenu()">Order Online</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Te Anau, New Zealand</div>
+    <h1>Olive Tree<br><em>Cafe</em></h1>
+    <p>Great coffee. Fresh food. A premium local cafe feel — right in the heart of Te Anau.</p>
+    <div class="hero-buttons">
+      <a href="#order" class="btn-primary">Order Online</a>
+      <a href="#menu" class="btn-outline">View Menu</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-leaf">✦</div><div class="divider-line"></div></div>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <div class="reviews-header reveal">
+      <div>
+        <span class="section-label">What People Are Saying</span>
+        <h2 class="section-title">Loved by <em>locals & visitors</em></h2>
+      </div>
+      <div class="rating-badge">
+        <div>
+          <div class="stars-display">★★★★★</div>
+          <div class="rating-text">Rated 5.0 by locals and visitors</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <span class="review-quote">"</span>
+        <p class="review-text">Hands down the best flat white in Te Anau. The cafe has such a warm, relaxed atmosphere — exactly what you want after a morning hike. The cabinet food is fresh and generous. I'll be back every day of my trip.</p>
+        <div class="review-footer">
+          <div>
+            <div class="review-author">Sarah M.</div>
+            <div class="review-source">Google Review</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card reveal" style="transition-delay: 0.1s">
+        <span class="review-quote">"</span>
+        <p class="review-text">Outstanding coffee and genuinely kind service. We stopped in before heading to Milford Sound and it set the perfect tone for the day. The food looked incredible — wish we'd had more time to stay and eat.</p>
+        <div class="review-footer">
+          <div>
+            <div class="review-author">James K.</div>
+            <div class="review-source">Google Review</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card reveal" style="transition-delay: 0.2s">
+        <span class="review-quote">"</span>
+        <p class="review-text">As a local, Olive Tree is my daily ritual. The baristas know their craft and the vibe is always just right — calm, friendly, unpretentious. The cabinet food changes regularly and it's always fresh and delicious.</p>
+        <div class="review-footer">
+          <div>
+            <div class="review-author">Rachel T.</div>
+            <div class="review-source">Google Review</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card reveal" style="transition-delay: 0.05s">
+        <span class="review-quote">"</span>
+        <p class="review-text">We've travelled New Zealand extensively and Olive Tree easily makes our top cafe list. Great plant-based options, beautiful coffee, and the kind of place that feels like a real community hub. Absolutely loved it.</p>
+        <div class="review-footer">
+          <div>
+            <div class="review-author">Emily & Dan</div>
+            <div class="review-source">TripAdvisor</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card reveal" style="transition-delay: 0.15s">
+        <span class="review-quote">"</span>
+        <p class="review-text">Perfect spot for breakfast before the Kepler Track. The coffee was exceptional — proper barista quality — and the food was fresh and filling. Prices are very reasonable too. A true hidden gem in Te Anau.</p>
+        <div class="review-footer">
+          <div>
+            <div class="review-author">Mike L.</div>
+            <div class="review-source">Google Review</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+
+      <div class="review-card reveal" style="transition-delay: 0.25s">
+        <span class="review-quote">"</span>
+        <p class="review-text">Discovered Olive Tree on our second day in Te Anau and went back every morning after that. The staff are warm and welcoming, the interior is beautiful, and the coffee is simply excellent. Can't recommend it enough.</p>
+        <div class="review-footer">
+          <div>
+            <div class="review-author">Sophie R.</div>
+            <div class="review-source">Google Review</div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-leaf">✦</div><div class="divider-line"></div></div>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Our Space</span>
+      <h2 class="section-title">A place worth <em>lingering in</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900&q=80" alt="Barista coffee art">
+        <div class="gallery-overlay"><span class="gallery-caption">Crafted with care</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=700&q=80" alt="Cafe interior">
+        <div class="gallery-overlay"><span class="gallery-caption">Our space</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=80" alt="Fresh food">
+        <div class="gallery-overlay"><span class="gallery-caption">Fresh daily</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80" alt="Coffee close up">
+        <div class="gallery-overlay"><span class="gallery-caption">Perfect espresso</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&q=80" alt="Cafe atmosphere">
+        <div class="gallery-overlay"><span class="gallery-caption">Good company</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-leaf">✦</div><div class="divider-line"></div></div>
+
+<!-- MENU HIGHLIGHTS -->
+<section id="menu">
+  <div class="container">
+    <div class="reveal" style="max-width: 560px;">
+      <span class="section-label">What We Do Best</span>
+      <h2 class="section-title">Simple things, <em>done beautifully</em></h2>
+      <p class="section-sub">We believe great hospitality is built on quality ingredients, skilled craft, and genuine warmth.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <div class="menu-icon">☕</div>
+        <h3>Barista Coffee</h3>
+        <p>We take our coffee seriously. From perfectly pulled espresso to silky flat whites and specialty pour-overs — every cup is crafted with care using premium single-origin beans.</p>
+      </div>
+      <div class="menu-card reveal" style="transition-delay: 0.1s">
+        <div class="menu-icon">🥗</div>
+        <h3>Fresh Cabinet Food</h3>
+        <p>Made fresh daily in our kitchen — wholesome salads, hearty cabinet treats, vibrant wraps, and baked goods that change with the seasons. Real food, made with love.</p>
+      </div>
+      <div class="menu-card reveal" style="transition-delay: 0.2s">
+        <div class="menu-icon">🌿</div>
+        <h3>Relaxed Local Atmosphere</h3>
+        <p>A place where locals linger and visitors feel at home. No rush, no fuss — just a beautiful space, good company, and the kind of calm you remember long after you leave Te Anau.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-leaf">✦</div><div class="divider-line"></div></div>
+
+<!-- ORDER -->
+<section id="order">
+  <div class="container">
+    <div class="order-content reveal">
+      <div class="order-tag">Ready when you are</div>
+      <h2>Order ahead,<br><em>skip the wait</em></h2>
+      <p>Your coffee and food ready when you arrive. Order online and we'll have it waiting.</p>
+      <a href="#" class="btn-primary" style="font-size: 0.95rem; padding: 1rem 2.5rem;">Order Online</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div><div class="divider-leaf">✦</div><div class="divider-line"></div></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Find Us</span>
+      <h2 class="section-title">Come <em>visit us</em></h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-block reveal">
+          <span class="info-label">Location</span>
+          <div class="info-value">Te Anau, Fiordland<br>Southland, New Zealand</div>
+        </div>
+        <div class="info-block reveal">
+          <span class="info-label">Phone</span>
+          <div class="info-value"><a href="tel:+6400000000" style="color: var(--cream); text-decoration: none;">+64 (0) 000 000 000</a></div>
+        </div>
+        <div class="info-block reveal">
+          <span class="info-label">Opening Hours</span>
+          <div class="hours-grid">
+            <span class="hours-day">Monday – Friday</span><span class="hours-time">7:30am – 4:00pm</span>
+            <span class="hours-day">Saturday</span><span class="hours-time">8:00am – 3:30pm</span>
+            <span class="hours-day">Sunday</span><span class="hours-time">8:30am – 2:30pm</span>
+          </div>
+        </div>
+        <div class="info-block reveal">
+          <span class="info-label">Email</span>
+          <div class="info-value"><a href="mailto:hello@olivetreecafe.nz" style="color: var(--green-light); text-decoration: none;">hello@olivetreecafe.nz</a></div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11571.060703148427!2d167.71263!3d-45.41505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6e9a699e7c1df7cf%3A0xf00ef62249dac30!2sTe%20Anau%2C%20New%20Zealand!5e0!3m2!1sen!2snz!4v1234567890"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Olive Tree Cafe location in Te Anau">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <div class="contact-form-section reveal">
+      <h3 class="form-title">Get in Touch</h3>
+      <p class="form-sub">Questions, catering enquiries, or just want to say hello — we'd love to hear from you.</p>
+
+      <form action="https://api.staticforms.xyz/submit" method="post">
+        <input type="hidden" name="apiKey" value="sf_768da8d33927e7f4f241d0a6">
+        <input type="hidden" name="redirectTo" value="https://olivetreecafe.nz/thanks.html">
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required placeholder="Jane">
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required placeholder="Smith">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="jane@example.com">
+          </div>
+          <div class="form-group">
+            <label for="business">Business (optional)</label>
+            <input type="text" id="business" name="business" placeholder="Your business name">
+          </div>
+          <div class="form-group full">
+            <label for="service">Enquiry Type</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="General enquiry">General enquiry</option>
+              <option value="Catering">Catering</option>
+              <option value="Private event">Private event</option>
+              <option value="Feedback">Feedback</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="Tell us how we can help..."></textarea>
+          </div>
+          <div class="form-group full recaptcha-wrap">
+            <div class="g-recaptcha" data-sitekey="6LeusZksAAAAAPpL2MIplqIcYKp-NzhFv-BPG4oT"></div>
+          </div>
+          <div class="form-group full submit-wrap">
+            <button type="submit" class="btn-primary" style="width: auto;">Send Message</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Olive Tree <span>Cafe</span></div>
+      <div class="footer-tagline">Proudly New Zealand owned &amp; operated · Te Anau, Fiordland</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="/terms.html">Terms &amp; Conditions</a></li>
+      <li><a href="/privacy.html">Privacy Policy</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2025 Olive Tree Cafe Te Anau. All rights reserved.</span>
+    <span class="footer-credit">Website by <a href="https://scaledsolutions.co.nz" target="_blank" rel="noopener">ScaledSolutions</a></span>
+  </div>
+</footer>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script>
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
