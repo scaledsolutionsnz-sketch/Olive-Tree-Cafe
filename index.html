@@ -573,35 +573,8 @@
   .order-content {
     position: relative;
     z-index: 1;
-    max-width: 860px;
+    max-width: 640px;
     margin: 0 auto;
-  }
-
-  .order-widget {
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid rgba(74,124,89,0.25);
-    background: rgba(255,255,255,0.04);
-    margin-bottom: 1.75rem;
-  }
-
-  .order-widget iframe {
-    display: block;
-    width: 100%;
-    min-height: 560px;
-    border: none;
-  }
-
-  .order-fallback {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-bottom: 0 !important;
-  }
-
-  .order-fallback a {
-    color: var(--green-light);
-    text-decoration: underline;
-    text-underline-offset: 3px;
   }
 
   .order-tag {
@@ -1092,15 +1065,7 @@
       <div class="order-tag">Ready when you are</div>
       <h2>Order ahead,<br><em>skip the wait</em></h2>
       <p>Your coffee and food ready when you arrive. Order online and we'll have it waiting.</p>
-      <div class="order-widget">
-        <iframe
-          src="https://www.restaurantlogin.com/api/fb/_w_zln_q"
-          title="Order Online – Olive Tree Cafe"
-          loading="lazy"
-          allowpaymentrequest>
-        </iframe>
-      </div>
-      <p class="order-fallback">Having trouble? <a href="https://www.restaurantlogin.com/api/fb/_w_zln_q" target="_blank" rel="noopener noreferrer">Open ordering page directly</a></p>
+      <a href="https://www.restaurantlogin.com/api/fb/_w_zln_q" class="btn-primary" style="font-size: 0.95rem; padding: 1rem 2.5rem;" target="_blank" rel="noopener noreferrer">Order Online</a>
     </div>
   </div>
 </section>
